@@ -1,0 +1,75 @@
+\documentclass[a4paper,12pt]{article}  % Define o tipo de documento (artigo), papel A4 e fonte tamanho 12pt
+
+\usepackage[utf8]{inputenc}  % Define a codificação do documento para UTF-8
+\usepackage{amsmath}         % Pacote para matemática
+\usepackage{amsfonts}        % Pacote para fontes matemáticas
+\usepackage{amssymb}         % Pacote para símbolos matemáticos
+
+\title{Exemplo de Documento LaTeX com Título e Estrutura de Tópicos}  % Título do documento
+\author{Pedro Rupf Pereira Viana}            % Autor
+\date{\today}                % Data (data de compilação)
+
+\begin{document}  % Início do documento
+
+\maketitle  % Cria o título, autor e data
+
+\begin{abstract}  % Resumo do documento
+    Este é um exemplo de documento LaTeX, que contém título, divisões e subdivisões por tópicos. 
+    A estrutura básica de um documento acadêmico é demonstrada, incluindo seções e subseções.
+\end{abstract}
+
+\tableofcontents  % Gera o índice automaticamente com as seções e subseções
+
+\newpage  % Quebra de página
+
+\section{Introdução}  % Seção principal
+Aqui começa o conteúdo da introdução. Neste documento, iremos demonstrar como organizar um artigo em LaTeX com diferentes divisões e subdivisões.
+
+\subsection{Objetivo}  % Sub-seção
+O objetivo deste exemplo é fornecer uma estrutura básica para a criação de documentos em LaTeX com títulos, seções e subseções.
+
+\subsection{Estrutura do Documento}  % Sub-seção
+O documento será organizado da seguinte forma:
+\begin{itemize}
+    \item Seção de Introdução
+    \item Seção de Desenvolvimento
+    \item Seção de Conclusão
+\end{itemize}
+
+\section{Desenvolvimento}  % Seção principal
+Nesta seção, apresentamos os detalhes do desenvolvimento do documento. LaTeX permite incluir facilmente matemáticas, gráficos, e tabelas.
+
+\subsection{Subseção de Matemática}  % Sub-seção
+Aqui estão alguns exemplos de expressões matemáticas:
+
+Equação quadrática: 
+\[
+ax^2 + bx + c = 0
+\]
+
+Teorema de Pitágoras:
+\[
+a^2 + b^2 = c^2
+\]
+
+\subsection{Subseção de Gráficos}  % Sub-seção
+Você pode incluir gráficos em LaTeX utilizando pacotes como `graphicx`. Por exemplo:
+
+\begin{figure}[h]
+    \centering
+    % Aqui você incluiria um arquivo de imagem, como um gráfico
+    \includegraphics[width=0.5\textwidth]{exemplo.jpg}
+    \caption{Exemplo de Gráfico}
+    \label{fig:grafico}
+\end{figure}
+
+\section{Conclusão}  % Seção principal
+Este é o fechamento do documento. Aqui discutimos as conclusões sobre o tema abordado.
+
+\subsection{Considerações Finais}  % Sub-seção
+LaTeX é uma ferramenta poderosa para a criação de documentos acadêmicos. Ele oferece um controle preciso sobre a formatação e permite incluir fórmulas matemáticas complexas, gráficos e tabelas com facilidade.
+
+\subsection{Sugestões para Trabalhos Futuros}  % Sub-seção
+Futuramente, seria interessante explorar o uso de LaTeX para criar apresentações (com o pacote Beamer), além de integração com bibliotecas externas.
+
+\end{document}  % Fim do documento
