@@ -1,34 +1,96 @@
 \documentclass[a4paper,12pt]{article}
-
+\usepackage{geometry}
+\geometry{left=3cm, right=2cm, top=3cm, bottom=2cm}
+\usepackage[portuguese,brazil]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\numberwithin{equation}{section}
 
-\title{Revisão sobre vetores}
+\title{Revisão e Notas sobre Vetores}
 \author{Pedro Rupf Pereira Viana}
 \date{\today}
 
 \begin{document}
 
 \maketitle
+\newpage
 
-\section{Introdução e objetivos}
-Trata-se de uma mera revisão teórica e expositiva sobre vetores e suas definições.
+\section{Introdução e Objetivos}
+Trata-se de uma revisão teórica e expositiva sobre vetores e suas definições fundamentais no plano cartesiano, e suas aplicações na matemática, física e na programação.
 
-\section{Desenvolvimento}  % Seção principal
-Nesta seção, apresentamos os detalhes do desenvolvimento do documento. LaTeX permite incluir facilmente matemáticas, gráficos, e tabelas.
+\section{Desenvolvimento}
 
-\subsection{Subseção de Matemática}  % Sub-seção
-Aqui estão alguns exemplos de expressões matemáticas:
+Consideremos o plano cartesiano em um sistema de coordenadas em $\mathbb{R}^{2}$, formado por um par de retas ortogonais. Fixada uma unidade de comprimento, 
+qualquer ponto $P$ do plano pode ser identificado pelo par ordenado $(a,b) \in \mathbb{R}^2$, onde $a$ é a abscissa e $b$ é a ordenada.
 
-Equação quadrática: 
-\[ax^2 + bx + c = 0\]
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xlabel = {$x$},
+    ylabel = {$y$},
+    xmin=-1, xmax=2,
+    ymin=-1, ymax=2,
+    xtick={-1,0,1,2},
+    ytick={-1,0,1,2},
+    grid=both,
+    minor tick num=1,
+    grid style={dashed, gray!40},
+    width=6cm,
+    height=6cm,
+]
 
-Teorema de Pitágoras:
-\[a^2 + b^2 = c^2\]
+\draw[->, thick] (axis cs:0,0) -- (axis cs:1.4,0);
+\draw[->, thick] (axis cs:0,0) -- (axis cs:0,1.4);
 
-\section{Conclusão}  % Seção principal
-Este é o fechamento do documento. Aqui discutimos as conclusões sobre o tema abordado.
+\addplot[mark=*, mark size=3.5pt, mark options={fill=black, draw=black}]
+    coordinates {(1,1)}
+    node[above right, font=\small] {$P(a,b)$};
 
-\end{document}  % Fim do documento
+\draw[dashed, gray!70] (1,0) -- (1,1);
+\draw[dashed, gray!70] (0,1) -- (1,1);
+
+\end{axis}
+\end{tikzpicture}
+\caption{Representação do ponto $P(a,b)$ no primeiro quadrante do plano cartesiano.}
+\label{fig:ponto_P}
+\end{figure}
+
+Desta forma, dados dois pontos $P$ e $Q$ do plano, adotando $Q(0,0)$ (isto é, a origem do plano cartesiano), podemos considerar que o segmento de reta 
+$\overrightarrow{QP}$, com ponto inicial $Q$ e ponto final $P$. Note que embora como conjunto de pontos os segmentos $\overrightarrow{QP}$ e $\overrightarrow{PQ}$ 
+sejam iguais, como segmentos orientados eles são distintos, onde chamamos estes vetores de segmentos opostos.
+
+Passemos a considerar, à partir de agora, apenas segmentos orientados com ponto inicial na origem, denominados \textit{vetores no plano}. É importante notar que 
+vetores no plano são determinados exclusivamente pelo seu ponto final, pois o ponto inicial é fixo na origem. Assim, para cada ponto no plano $P(a,b)$, está associado
+um único vetor $\textbf{v} = \overrightarrow{OP}$
+
+\subsection{Exemplos Matemáticos}
+
+Aqui estão alguns exemplos clássicos de expressões matemáticas:
+
+\begin{eqnarray}
+	ax^2 + bx + c = 0
+\end{eqnarray}
+
+\begin{eqnarray}
+	\rho_m\left(\vec{v}\cdot\vec{\nabla}\right)\vec{v}=-\vec{\nabla}P-\vec{\nabla}\cdot\overleftrightarrow{\Pi}
+\end{eqnarray}
+
+\subsection{Plano Cartesiano com Vetores}
+
+Nesta subseção, exploraremos a representação geométrica de vetores a partir da origem até pontos do plano, como $\overrightarrow{OP}$, onde $P(a,b)$.
+
+% (Você pode adicionar mais gráficos aqui depois)
+
+\section{Conclusão}
+
+Esta revisão consolidou os conceitos fundamentais de vetores no plano cartesiano, incluindo sua representação por coordenadas, operações básicas e visualização geométrica. O uso de ferramentas como o \LaTeX\ e o \texttt{pgfplots} permite uma apresentação clara, precisa e esteticamente agradável do conteúdo matemático.
+
+\end{document}
