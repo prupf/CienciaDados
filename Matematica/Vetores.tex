@@ -298,25 +298,40 @@ Em linguagens de baixo nível como C ou C++, vetores são implementados como \te
 é mais flexível e geralmente representado por \textbf{Lists} (ou Arrays, no caso do C$\#$), ou também por Lists e pela biblioteca \textbf{NumPy} (que oferece verdadeiros 
 arrays n-dimensionais otimizados).
 
-\subsection{}
+\subsection{Uso de vetores em Python - Lists VS NumPy Array}
 
 \begin{table}[ht]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-Cabeçalho 1 & Cabeçalho 2 & Cabeçalho 3 \\ \hline
-Valor 1 & Valor 2 & Valor 3 \\ \hline
-Valor 4 & Valor 5 & Valor 6 \\ \hline
-Valor 7 & Valor 8 & Valor 9 \\ \hline
-Valor 10 & Valor 11 & Valor 12 \\ \hline
-Valor 13 & Valor 14 & Valor 15 \\ \hline
-Valor 16 & Valor 17 & Valor 18 \\ \hline
+
+\textbf{Características} & \textbf{List - Python Nativo} & \textbf{numpy.array} \\ \hline
+Tipagem & heterogênea & Homogênea (mesmo tipo) \\ \hline
+Performance & Lenta para op. numéricas & Muito rápida (Usam C/Fortran) \\ \hline
+Tamanho fixo? & Dinâmico & Fixo após criação \\ \hline
+Operações matemáticas & Manual (loops) & Vetorizadas (element-wise) \\ \hline
+Consumo de memória & Alto & Baixo \\ \hline
+
 \end{tabular}
-\caption{Exemplo de Tabela 6x3}
+\caption{Resumo comparativo entre listas nativas do Python e arrays da biblioteca NumPy.}
 \end{table}
 
+Tal como no C$\#$, em Python podemos usar listas (list) para representar vetores, possuíndo operações básicas como acesso por índice, modificação de elementos, soma e 
+multiplicação por escalar, além de apresentar uma alta e excelente versatilidade de uso (principalmente quando nos vemos em cenários onde um determinado objeto pode 
+receber um número elevado de registros, como por exemplo, um paciente que possui em seu pedido médico 80 exames). Utilizo este exemplo pois é um caso real que já me 
+deparei em meu dia a dia como desenvolvedor, além do fato de que não é possível "prever" quantos exames um paciente pode solicitar em um único pedido médico; e caso 
+usemos um array estático, podemos acabar tendo problemas na montagem do pedido, bem como estouro de memória.
+
+Já a biblioteca NumPy é ideal para cálculos numéricos e manipulação de grandes conjuntos de dados, sendo amplamente utilizada em ciência de dados, aprendizado de 
+máquina e computação científica. O numpy.array possui tamanho fixo após a criação, o que permite otimizações de desempenho significativas. Suas desvantages incluem a 
+necessidade de instalação adicional e a limitação de tipos homogêneos (isto é, todos os elementos devem ser do mesmo tipo).
+
+\subsection{Exemplos Práticos em Python}
+
+\subsubsection{Lista como vetor}
 
 \begin{lstlisting}[style=python, caption={Uso de list como vetor em Python}, label={lst:lista_vetor}]
+# ==================== EXEMPLO 1: Lista como vetor ====================
 vetor_lista = [10, 20, 30, 40, 50]
 
 # Acesso por indice
@@ -335,5 +350,134 @@ print(f"Soma (funcao sum): {soma}")
 vetor_dobrado = [x * 2 for x in vetor_lista]
 print(f"Vetor dobrado: {vetor_dobrado}")
 \end{lstlisting}
+
+\subsubsection{Vetorização Real com NumPy}
+
+\begin{lstlisting}[style=python, caption={Vetorização Real com NumPy}, label={lst:lista_vetor}]
+# ================ EXEMPLO 2: NumPy - Vetorizacao Real ================
+import numpy as np
+
+print("\n=== Usando numpy.ndarray (vetor de verdade) ===")
+vetor_np = np.array([10, 20, 30, 40, 50], dtype=np.float64)
+
+# OPERACOES VETORIZADAS (o grande diferencial!)
+print(f"Vetor original: {vetor_np}")
+print(f"Vetor + 100: {vetor_np + 100}")
+print(f"Vetor * 3: {vetor_np * 3}")
+print(f"Vetor ao quadrado: {vetor_np ** 2}")
+print(f"Soma total: {vetor_np.sum()}")
+print(f"Media: {vetor_np.mean():.2f}")
+print(f"Desvio padrao: {vetor_np.std():.2f}")
+print(f"Maior valor: {vetor_np.max()}, Menor: {vetor_np.min()}")
+\end{lstlisting}
+
+\subsubsection{Vetores bidimensionais (matrizes)}
+
+\begin{lstlisting}[style=python, caption={Vetores bidimensionais (matrizes)}, label={lst:lista_vetor}]
+# ================ Vetores bidimensionais (matrizes) ================
+print("\n=== Matriz 3x3 com NumPy ===")
+matriz = np.array([[1, 2, 3],
+                   [4, 5, 6],
+                   [7, 8, 9]])
+
+print("Matriz:\n", matriz)
+
+# Transposta
+print("Transposta:\n", matriz.T)
+
+# Multiplicacao elemento a elemento
+print("Matriz ao quadrado (element-wise):\n", matriz ** 2)
+
+# Produto matricial
+print("Matriz x sua transposta:\n", matriz @ matriz.T)
+\end{lstlisting}
+
+\subsubsection{Performance entre lista e NumPy.Array}
+
+\begin{lstlisting}[style=python, caption={Performance entre lista e NumPy.Array}, label={lst:lista_vetor}]
+# ============ Performance real (milhoes de elementos) ============
+import time
+
+tamanho = 10_000_000
+
+# Lista Python
+inicio = time.time()
+lista = list(range(tamanho))
+lista_dobro = [x * 2 for x in lista]
+fim = time.time()
+print(f"\nLista (10M elementos) - tempo: {fim - inicio:.3f} s")
+
+# NumPy
+inicio = time.time()
+vetor = np.arange(tamanho)
+vetor_dobro = vetor * 2
+fim = time.time()
+print(f"NumPy (10M elementos) - tempo: {fim - inicio:.3f} s")
+# Resultado tipico: NumPy sendo 50 - 200x mais rapido!
+\end{lstlisting}
+
+\newpage
+
+\subsubsection{Operações vetoriais comuns usando NumPy}
+
+\begin{lstlisting}[style=python, caption={Operações vetoriais comuns usando NumPy}, label={lst:lista_vetor}]
+# ============ Operacoes vetoriais ============
+a = np.array([1, 2, 3, 4])
+b = np.array([10, 20, 30, 40])
+
+print(a + b)                      # [11 22 33 44]
+print(a - b)                      # [-9 -18 -27 -36]
+print(a * b)                      # [10 40 90 160]  (produto elemento a elemento)
+print(a / b)                      # [0.1 0.1 0.1 0.1]
+print(a.dot(b))                   # 300 (produto escalar)
+print(np.cross([1,0,0], [0,1,0])) # vetor perpendicular (3D)
+\end{lstlisting}
+
+\subsection{Aplicações reais de vetores}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+
+\textbf{Área} & \textbf{Uso de vetores} \\ \hline
+Machine Learning & Vetor de 784 dimensões (i.e. imagem 28 x 28) \\ \hline
+Física & posição, velocidade, aceleração, etcs. \\ \hline
+Processamento de áudio & vetor 1D contendo milhares de pontos \\ \hline
+Finanças & Série temporal de preços (i.e. vetor de retornos diários) \\ \hline
+Visão computacional & Imagens (i.e. Tensores) \\ \hline
+
+\end{tabular}
+\caption{Resumo comparativo entre listas nativas do Python e arrays da biblioteca NumPy.}
+\end{table}
+
+\subsection{Boas práticas}
+
+\begin{lstlisting}[style=python, caption={Operações vetoriais comuns usando NumPy}, label={lst:lista_vetor}]
+# 1. Sempre especifique o dtype quando for critico
+vetor_preciso = np.array([1.1, 2.2, 3.3], dtype=np.float32)
+
+# 2. Use funcoes universais (ufuncs) - sao rapidas e legiveis
+np.sin(vetor) # seno de cada elemento
+np.exp(vetor) # exponencial
+np.log(vetor) # logaritmo
+
+# 3. Evite loops explicitos em NumPy
+# Exemplo ruim:
+for i in range(len(v)): v[i] *= 2
+# Exemplo bom:
+v *= 2
+\end{lstlisting}
+
+\subsection{Conclusão}
+
+Embora o Python nativo ofereça listas flexíveis que podem atuar como vetores, o verdadeiro poder dos \textbf{vetores na programação moderna} vem da vetorização 
+proporcionada pelo \textbf{NumPy}. Ela permite:
+
+\begin{itemize}
+    \item Código mais límpo e legível;
+    \item Desempenho "próximo" de linguagens compiladas para operações numéricas;
+    \item Base para bibliotecas como Pandas, Scikit-learn, TensorFlow e PyTorch
+\end{itemize}
 
 \end{document}

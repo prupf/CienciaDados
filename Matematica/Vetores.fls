@@ -1,9 +1,9 @@
-PWD /home/pedro/CienciaDados/CienciaDados/Semana01
+PWD /home/pedro/CienciaDados/CienciaDados/Matematica
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/pedro/CienciaDados/CienciaDados/Semana01/Vetores.tex
+INPUT /home/pedro/CienciaDados/CienciaDados/Matematica/Vetores.tex
 OUTPUT Vetores.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
