@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1762787828 "/home/pedro/CienciaDados/CienciaDados/Matematica/Vetores.tex" "Vetores.pdf" "Vetores" 1762787829
+["pdflatex"] 1762795340 "/home/pedro/CienciaDados/CienciaDados/Matematica/Vetores.tex" "Vetores.pdf" "Vetores" 1762795341
   "/etc/texmf/web2c/texmf.cnf" 1659602963 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/pedro/CienciaDados/CienciaDados/Matematica/Vetores.tex" 1762787828 19195 004436a05d77feecbbabc5fa876d5b58 ""
+  "/home/pedro/CienciaDados/CienciaDados/Matematica/Vetores.tex" 1762795340 19196 c451d383fabf6ca0c193ae34c175b3e8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm" 1136768653 3584 f80ddd985bd00e29e9a6047ebd9d4781 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -221,8 +221,8 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1761900274 4036811 4cb80868003c86b962b6b5ae1e1e2902 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1761937896 1406456 f5334c14ed186a6f7fdf3e128a94c552 ""
   "002.png" 1762538126 42895 0c168d349105539bbfd0baee3530a77d ""
-  "Vetores.aux" 1762787829 5024 13c78fa0dc94d60bc36340c93c9ca548 "pdflatex"
-  "Vetores.tex" 1762787828 19195 004436a05d77feecbbabc5fa876d5b58 ""
+  "Vetores.aux" 1762795341 5024 13c78fa0dc94d60bc36340c93c9ca548 "pdflatex"
+  "Vetores.tex" 1762795340 19196 c451d383fabf6ca0c193ae34c175b3e8 ""
   "image-5.png" 1762524675 190122 ded015f15a4b21d9cc7bd27c781058b9 ""
   (generated)
   "Vetores.aux"
